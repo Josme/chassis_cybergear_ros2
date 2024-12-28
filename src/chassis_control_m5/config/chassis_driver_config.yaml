@@ -1,0 +1,33 @@
+/chassis_node:                  # node name
+  ros__parameters:                          # define ros2 parameters
+    motors:                                 # configure motor section
+      joint_names: [left_motor_joint, right_motor_joint]   # motor names
+      master_id: 0xfe                            # cybergear can id (default cybergear can id is 0x7F)
+      rate: 100.0
+      wheelbase: 0.284                              # set wheelbase (default : 0.3)¬
+      right:                         # select motor name from names tag
+        id: 0x01                            # cybergear can id (default cybergear can id is 0x7F)
+        velocity_limit: 30.0                # set velocity limit (max value : 30 [rad/sec])
+        current_limit: 10.0                 # set current limit (max value : 27 [A])
+        torque_limit: 10.0                  # set torque limit (max value : 12 [Nm])
+        position_kp: 30.0                   # set position kp (default: 30.0)
+        velocity_kp: 2.0                    # set velocity kp (default: 2.0)
+        velocity_ki: 0.021                  # set velocity ki (default: 0.02)
+        wheel_radius: 0.105
+        gear_ratio: 1.0 
+        direction: 1
+      left:                         # select motor name from names tag
+        id: 0x02                            # 2nd motor can id
+        velocity_limit: 30.0                # set velocity limit (max value : 30 [rad/sec])
+        current_limit: 10.0                 # set current limit (max value : 27 [A])
+        torque_limit: 10.0                  # set torque limit (max value : 12 [Nm])
+        position_kp: 30.0                   # set position kp (default: 30.0)
+        velocity_kp: 2.0                    # set velocity kp (default: 2.0)
+        velocity_ki: 0.021                  # set velocity ki (default: 0.02)
+        wheel_radius: 0.105
+        gear_ratio: 1.0
+        direction: -1
+/battery_publisher:                  # node name
+  ros__parameters:                          # define ros2 parameters
+    min_voltage: 21.6
+    max_voltage: 25.2
